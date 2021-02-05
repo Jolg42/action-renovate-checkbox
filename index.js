@@ -19,7 +19,7 @@ async function run() {
     const CHECKED = "- [x] <!-- manual job -->";
     const UNCHECKED = "- [ ] <!-- manual job -->";
 
-    if (masterIssue.body.contains(CHECKED)) {
+    if (masterIssue.body.includes(CHECKED)) {
       return "Already Checked";
     }
 
