@@ -8,13 +8,10 @@ async function run() {
 
     const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
 
-    const masterIssue = await octokit.request(
-      "GET /repos/{owner}/{repo}/issues/{issue_number}",
-      {
-        ...github.context.repo,
-        issue_number: masterIssueId,
-      }
-    );
+    const { data: masterIssue } = await octokit.issues.get({
+      ...github.context.repo,
+      issue_number: masterIssueId,
+    });
 
     core.info(`Found masterIssue ${masterIssue}`);
     core.info(`Found masterIssue body ${masterIssue.body}`);
@@ -26,7 +23,7 @@ async function run() {
       return "Already Checked";
     }
 
-    await octokit.request("PATCH /repos/{owner}/{repo}/issues/{issue_number}", {
+    await octokit.issues.update({
       ...github.context.repo,
       issue_number: masterIssueId,
       body: masterIssue.body.replace(UNCHECKED, CHECKED),
