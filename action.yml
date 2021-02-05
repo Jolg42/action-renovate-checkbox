@@ -1,13 +1,9 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'action-renovate-checkbox'
+description: 'Trigger Renovate with the Dependency Dashboard checkbox.'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  dependency-dashboard-id:
+    description: 'The issue ID of the Dependency Dashboard, add `"masterIssue": true` to your Renovate config first.'
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
 runs:
   using: 'node12'
   main: 'dist/index.js'
