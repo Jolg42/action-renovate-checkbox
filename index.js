@@ -3,11 +3,10 @@ const github = require("@actions/github");
 
 async function run() {
   try {
-    const token = core.getInput("token");
     const masterIssueId = core.getInput("master-issue-id");
     core.info(`masterIssueId ${masterIssueId}`);
 
-    const octokit = new github.GitHub(token);
+    const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
 
     const masterIssue = await octokit.request(
       "GET /repos/{owner}/{repo}/issues/{issue_number}",
