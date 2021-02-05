@@ -1,5 +1,8 @@
 name: 'action-renovate-checkbox'
 description: 'Trigger Renovate with the Dependency Dashboard / masterIssue checkbox.'
+branding:
+  icon: check-square
+  color: blue
 inputs:
   master-issue-id:
     description: 'The issue ID of the Dependency Dashboard / masterIssue, add `"masterIssue": true` to your Renovate config first.'
