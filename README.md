@@ -46,7 +46,7 @@ See the [versioning documentation](https://github.com/actions/toolkit/blob/maste
 You can now consume the action by referencing the v1 branch
 
 ```yaml
-uses: Jolg42/action-renovate-checkbox@0.0.1
+uses: Jolg42/action-renovate-checkbox@v1
 with:
   master-issue-id: 1234
 env:

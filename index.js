@@ -4,8 +4,6 @@ const github = require("@actions/github");
 async function run() {
   try {
     const masterIssueId = core.getInput("master-issue-id");
-    core.info(`masterIssueId ${masterIssueId}`);
-
     const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
 
     const { data: masterIssue } = await octokit.issues.get({
@@ -14,12 +12,12 @@ async function run() {
     });
 
     core.info(`Found masterIssue ${masterIssue}`);
-    core.info(`Found masterIssue body ${masterIssue.body}`);
 
     const CHECKED = "- [x] <!-- manual job -->";
     const UNCHECKED = "- [ ] <!-- manual job -->";
 
     if (masterIssue.body.includes(CHECKED)) {
+      core.info(`Checkbox already checked.`);
       return "Already Checked";
     }
 
