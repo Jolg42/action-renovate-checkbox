@@ -1,8 +1,8 @@
 name: 'action-renovate-checkbox'
-description: 'Trigger Renovate with the Dependency Dashboard checkbox.'
+description: 'Trigger Renovate with the Dependency Dashboard / masterIssue checkbox.'
 inputs:
-  dependency-dashboard-id:
-    description: 'The issue ID of the Dependency Dashboard, add `"masterIssue": true` to your Renovate config first.'
+  master-issue-id:
+    description: 'The issue ID of the Dependency Dashboard / masterIssue, add `"masterIssue": true` to your Renovate config first.'
     required: true
 runs:
   using: 'node12'
