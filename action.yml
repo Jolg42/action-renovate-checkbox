@@ -7,6 +7,15 @@ inputs:
   master-issue-id:
     description: 'The issue ID of the Dependency Dashboard / masterIssue, add `"masterIssue": true` to your Renovate config first.'
     required: true
+  owner:
+    description: 'The owner of the repository in with the Dependency Dashboard is located. This parameter is optional and useful if you want to trigger renovate in another project.'
+    required: false
+  repo:
+    description: 'The name of the repository in with the Dependency Dashboard is located. This parameter is optional and useful if you want to trigger renovate in another project.'
+    required: false
+  token:
+    description: 'The GitHub Token. Can also be set through the GITHUB_TOKEN env var.'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
