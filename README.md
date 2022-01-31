@@ -30,6 +30,8 @@ jobs:
       - uses: Jolg42/action-renovate-checkbox@v1
         with:
           master-issue-id: 1234
+          owner: Jolg42 # Optional - useful if you want to trigger renovate in another project
+          repo: repo123 # Optional - useful if you want to trigger renovate in another project
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
